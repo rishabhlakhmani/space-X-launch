@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IMission } from 'src/app/models/mission.interface';
 
 @Component({
     selector: 'app-mission-card',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MissionCardComponent implements OnInit {
 
-    @Input() mission;
+    @Input() mission: IMission;
 
     constructor() { }
 

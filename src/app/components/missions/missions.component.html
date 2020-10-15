@@ -1,4 +1,6 @@
-<div *ngFor='let mission of missions | async'>
-    {{mission.launch_year}}
-    <app-mission-card mission=[mission]></app-mission-card>
+<div class="cards">
+  <app-mission-card
+    *ngFor="let mission of missions | async"
+    [mission]="mission"
+  ></app-mission-card>
 </div>

@@ -1,1 +1,28 @@
-<p>mission-card works!</p>
+<div class="card">
+  <div class="card-image">
+    <img [src]="mission.imgUrl" alt="mission_img" />
+  </div>
+  <div class="card-content">
+    <div class="card-title">
+      {{ mission.mission_name }} # {{ mission.flight_number }}
+    </div>
+    <div *ngIf="mission.mission_id.length" class="card-text">
+      <b>Mission Ids: </b>
+      <ul>
+        <li *ngFor="let mission_id of mission.mission_id">{{ mission_id }}</li>
+      </ul>
+    </div>
+    <div class="card-text">
+      <b>Launch Year: </b>
+      {{ mission.launch_year }}
+    </div>
+    <div class="card-text">
+      <b>Successful launch: </b>
+      {{ mission.launch_success }}
+    </div>
+    <div class="card-text">
+        <b>Successful Landing: </b>
+        {{ mission.launch_success }}
+    </div>
+  </div>
+</div>

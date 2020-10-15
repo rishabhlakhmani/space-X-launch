@@ -1,0 +1,6 @@
+<div class="filter-header">
+ {{filterType}}
+</div>
+<div>
+    <button *ngFor="let value of filterValues" (click)="onClick(value)">{{value}}</button>
+</div>
