@@ -1,5 +1,5 @@
 export interface IFilters {
     launch_year?: string;
-    successfull_launch?: string;
-    successfull_land?: string;
+    launch_success?: string;
+    land_success?: string;
 }

@@ -9,6 +9,7 @@ import { FiltersComponent } from './components/filters/filters.component';
 import { MissionCardComponent } from './components/mission-card/mission-card.component';
 import { MissionsComponent } from './components/missions/missions.component';
 import { FilterCategoryComponent } from './components/filter-category/filter-category.component';
+import { MissionsListResolver } from './resolver/mission-list.resolver';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { FilterCategoryComponent } from './components/filter-category/filter-cat
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [MissionsListResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
