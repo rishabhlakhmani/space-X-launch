@@ -1,5 +1,5 @@
 <div class="cards">
-  <div class="mission-card" *ngFor="let mission of missions | async" >
+  <div class="mission-card" *ngFor="let mission of missions | async; trackBy: trackByFn">
     <app-mission-card [mission]="mission"></app-mission-card>
   </div>
 </div>
