@@ -13,7 +13,6 @@ import { MissionsService } from 'src/app/services/missions.service';
 })
 export class MissionsComponent implements OnInit, OnDestroy {
 
-    public subscription = new Subscription()
     public missions: Observable<IMission[]>;
     constructor(private missionService: MissionsService, private route: ActivatedRoute) { }
 
@@ -25,7 +24,7 @@ export class MissionsComponent implements OnInit, OnDestroy {
             )).subscribe((data) => {
                 this.missionService.setMissionsList(data.allMissions);
             });
-        this.subscription = this.route
+        this.route
             .queryParams.pipe(
                 switchMap((params) => {
                     return of(params);
@@ -39,7 +38,10 @@ export class MissionsComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.subscription.unsubscribe();
     }
+
+    trackByFn(index, item): number {
+        return item.flight_number;
+      }
 
 }

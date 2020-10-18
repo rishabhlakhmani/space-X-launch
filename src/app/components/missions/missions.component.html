@@ -1,6 +1,5 @@
 <div class="cards">
-  <app-mission-card
-    *ngFor="let mission of missions | async"
-    [mission]="mission"
-  ></app-mission-card>
+  <div class="mission-card" *ngFor="let mission of missions | async" >
+    <app-mission-card [mission]="mission"></app-mission-card>
+  </div>
 </div>
