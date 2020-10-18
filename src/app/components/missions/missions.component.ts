@@ -17,13 +17,6 @@ export class MissionsComponent implements OnInit, OnDestroy {
     constructor(private missionService: MissionsService, private route: ActivatedRoute) { }
 
     ngOnInit(): void {
-        this.route.data.pipe(
-            switchMap((data: { allMissions: IMission[] }) => {
-                return of(data);
-            }
-            )).subscribe((data) => {
-                this.missionService.setMissionsList(data.allMissions);
-            });
         this.route
             .queryParams.pipe(
                 switchMap((params) => {
@@ -31,7 +24,14 @@ export class MissionsComponent implements OnInit, OnDestroy {
                 }
                 )).subscribe(params => {
                     this.missionService.setFilters(params as IFilters);
-                    this.missionService.applyFilters();
+                    if (this.missionService.missionList) {
+                        this.missionService.applyFilters();
+                    } else {
+                        this.missionService.getAllMissions().subscribe(missions => {
+                            this.missionService.setMissionsList(missions);
+                            this.missionService.applyFilters();
+                        });
+                    }
                 });
 
         this.missions = this.missionService.getMissionsObs();

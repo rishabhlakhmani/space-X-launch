@@ -12,8 +12,8 @@ export class MissionsService {
 
     constructor(private httpServie: HttpService) { }
 
+    public missionList: IMission[];
     private missionsObs$: BehaviorSubject<IMission[]> = new BehaviorSubject(null);
-    private missionList: IMission[];
     private currentFilters: IFilters;
 
     public getMissionsObs(): Observable<IMission[]> {
