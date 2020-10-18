@@ -10,7 +10,7 @@ import { MissionsService } from 'src/app/services/missions.service';
 })
 export class FilterCategoryComponent implements OnInit {
     @Input() filterType: string;
-    public filterCategory: {label: string, values: string[]};
+    public filterCategory: { label: string, values: string[] };
     constructor(private missionService: MissionsService, private router: Router) { }
 
     ngOnInit(): void {
@@ -19,8 +19,8 @@ export class FilterCategoryComponent implements OnInit {
 
     public onClick(filterValue: string): void {
         if (filterValue !== 'Clear') {
-            const newFilters =  {...this.missionService.getFilters(), [this.filterType]: filterValue};
-            this.router.navigate(['/launches'], { queryParams: newFilters});
+            const newFilters = { ...this.missionService.getFilters(), [this.filterType]: filterValue };
+            this.router.navigate(['/launches'], { queryParams: newFilters });
         } else {
             this.router.navigate(['/launches']);
         }

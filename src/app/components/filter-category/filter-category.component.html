@@ -3,7 +3,10 @@
     {{ filterCategory.label }}
   </div>
   <div class="filter-buttons-wrapper">
-    <button *ngFor="let value of filterCategory.values" (click)="onClick(value)">
+    <button
+      *ngFor="let value of filterCategory.values"
+      (click)="onClick(value)"
+    >
       {{ value }}
     </button>
   </div>

@@ -7,10 +7,10 @@ import { MissionsService } from '../services/missions.service';
 @Injectable()
 export class MissionsListResolver implements Resolve<IMission[]> {
 
-    constructor(private missionService: MissionsService) {}
+    constructor(private missionService: MissionsService) { }
 
-    resolve(): Observable<IMission[]>  {
+    resolve(): Observable<IMission[]> {
         return this.missionService.getAllMissions();
-      }
+    }
 
 }

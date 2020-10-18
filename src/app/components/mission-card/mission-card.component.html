@@ -9,11 +9,15 @@
     <div class="card-text mission-ids">
       <b>Mission Ids: </b>
       <ul *ngIf="mission.mission_id.length; else not_available">
-        <li *ngFor="let mission_id of mission.mission_id">{{ mission_id || 'NA' }}</li>
+        <li *ngFor="let mission_id of mission.mission_id">
+          {{ mission_id || "NA" }}
+        </li>
       </ul>
-      <ng-template #not_available><ul>
-        <li>NA</li>
-      </ul></ng-template>
+      <ng-template #not_available
+        ><ul>
+          <li>NA</li>
+        </ul></ng-template
+      >
     </div>
     <div class="card-text">
       <b>Launch Year: </b>
@@ -24,8 +28,8 @@
       {{ mission.launch_success }}
     </div>
     <div class="card-text">
-        <b>Successful Landing: </b>
-        {{ mission.launch_success }}
+      <b>Successful Landing: </b>
+      {{ mission.launch_success }}
     </div>
   </div>
 </div>

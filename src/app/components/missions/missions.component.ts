@@ -18,7 +18,7 @@ export class MissionsComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.route.data.pipe(
-            switchMap((data: {allMissions: IMission[]}) => {
+            switchMap((data: { allMissions: IMission[] }) => {
                 return of(data);
             }
             )).subscribe((data) => {
@@ -42,6 +42,6 @@ export class MissionsComponent implements OnInit, OnDestroy {
 
     trackByFn(index, item): number {
         return item.flight_number;
-      }
+    }
 
 }

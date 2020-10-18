@@ -1,6 +1,7 @@
 <div class="filter-container">
   <div class="filters-title">Filters</div>
-  <app-filter-category *ngFor="let filterType of filterTypes"
+  <app-filter-category
+    *ngFor="let filterType of filterTypes"
     [filterType]="filterType"
   ></app-filter-category>
 </div>
