@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable, of, Subscription } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { IFilters } from 'src/app/models/filters.interface';
 import { IMission } from 'src/app/models/mission.interface';
 import { MissionsService } from 'src/app/services/missions.service';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-missions',
@@ -14,7 +15,8 @@ import { MissionsService } from 'src/app/services/missions.service';
 export class MissionsComponent implements OnInit, OnDestroy {
 
     public missions: Observable<IMission[]>;
-    constructor(private missionService: MissionsService, private route: ActivatedRoute) { }
+    constructor(private missionService: MissionsService, private route: ActivatedRoute,
+                private titleService: Title, private metaTagService: Meta) { }
 
     ngOnInit(): void {
         this.route.data.pipe(
@@ -35,6 +37,11 @@ export class MissionsComponent implements OnInit, OnDestroy {
                 });
 
         this.missions = this.missionService.getMissionsObs();
+
+        this.titleService.setTitle('Spacex Mission List');
+        this.metaTagService.updateTag(
+            { name: 'description', content: 'mission list' }
+        );
     }
 
     ngOnDestroy(): void {
