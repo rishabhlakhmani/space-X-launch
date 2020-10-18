@@ -1,20 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { EFilters } from 'src/app/constants/filters.enum';
+import { filterTypes } from 'src/app/constants/filters.constant';
 
 @Component({
-  selector: 'app-filters',
-  templateUrl: './filters.component.html',
-  styleUrls: ['./filters.component.scss']
+    selector: 'app-filters',
+    templateUrl: './filters.component.html',
+    styleUrls: ['./filters.component.scss']
 })
 export class FiltersComponent implements OnInit {
 
-    public yearsFilters = Array.from(Array(15).keys(), x => (x + 2006).toString());
-    public booleanFilters = Array.of('true', 'false');
-    public filterTypes = EFilters;
+    public filterTypes = Array.from(filterTypes.keys());
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
 }

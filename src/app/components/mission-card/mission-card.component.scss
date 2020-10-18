@@ -1,14 +1,43 @@
 .card {
     padding: 1rem;
+    margin: 0.5rem;
     background-color: white;
+    border-radius: 10px;
 
     .card-image {
         background-color: rgb(235, 227, 227);
         text-align: center;
 
         img {
-            width: 15rem;
-            height: 15rem;
+            width: 14rem;
+            height: 14rem;
+        }
+    }
+
+    .card-title {
+        color: #45477e;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .card-text {
+        padding: 4px 0 4px 0 ;
+    }
+
+    .card-content {
+        width: 14rem;
+        height: 11rem;
+    }
+
+    .mission-ids {
+        ul {
+            margin: 0;
+            padding-left: 1.1rem;
+            padding-top: 0;
+
+            li {
+                color: #8587c0;
+            }
         }
     }
   }

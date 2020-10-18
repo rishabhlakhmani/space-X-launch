@@ -1,6 +1,10 @@
-<div class="filter-header">
- {{filterType}}
-</div>
-<div>
-    <button *ngFor="let value of filterValues" (click)="onClick(value)">{{value}}</button>
+<div class="filter-category-wrapper">
+  <div class="filter-header">
+    {{ filterCategory.label }}
+  </div>
+  <div class="filter-buttons-wrapper">
+    <button *ngFor="let value of filterCategory.values" (click)="onClick(value)">
+      {{ value }}
+    </button>
+  </div>
 </div>

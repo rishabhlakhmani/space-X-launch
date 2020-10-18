@@ -1,5 +1,6 @@
-<div class="filters">
-  <app-filter-category [filterValues]="yearsFilters" [filterType]="filterTypes.LaunchYear"></app-filter-category>
-  <app-filter-category [filterValues]="booleanFilters" [filterType]="filterTypes.SuccessfulLaunch"></app-filter-category>
-  <app-filter-category [filterValues]="booleanFilters" [filterType]="filterTypes.SuccefulLanding"></app-filter-category>
+<div class="filter-container">
+  <div class="filters-title">Filters</div>
+  <app-filter-category *ngFor="let filterType of filterTypes"
+    [filterType]="filterType"
+  ></app-filter-category>
 </div>

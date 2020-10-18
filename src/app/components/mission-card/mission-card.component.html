@@ -3,14 +3,17 @@
     <img [src]="mission.imgUrl" alt="mission_img" />
   </div>
   <div class="card-content">
-    <div class="card-title">
+    <div class="card-title card-text">
       {{ mission.mission_name }} # {{ mission.flight_number }}
     </div>
-    <div *ngIf="mission.mission_id.length" class="card-text">
+    <div class="card-text mission-ids">
       <b>Mission Ids: </b>
-      <ul>
-        <li *ngFor="let mission_id of mission.mission_id">{{ mission_id }}</li>
+      <ul *ngIf="mission.mission_id.length; else not_available">
+        <li *ngFor="let mission_id of mission.mission_id">{{ mission_id || 'NA' }}</li>
       </ul>
+      <ng-template #not_available><ul>
+        <li>NA</li>
+      </ul></ng-template>
     </div>
     <div class="card-text">
       <b>Launch Year: </b>
