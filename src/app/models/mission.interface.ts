@@ -3,7 +3,7 @@ export interface IMission {
     flight_number: number;
     mission_id: string[];
     imgUrl: string;
-    launch_year: number;
-    launch_success: boolean;
-    land_success: boolean;
+    launch_year: string;
+    launch_success: string;
+    land_success: string;
 }
