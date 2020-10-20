@@ -33,4 +33,10 @@ describe('MissionCardComponent', () => {
       'https://images2.imgbox.com/e9/c9/T8CfiSYb_o.png'
     );
   });
+
+  it('should set isloaded to true', () => {
+    component.isLoaded = false;
+    component.removeLoader();
+    expect(component.isLoaded).toBe(true);
+  });
 });
