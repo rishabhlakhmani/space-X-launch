@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { response } from 'express';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { responseMapper } from '../mappers/api-response.mappers';
 import { IMission } from '../models/mission.interface';
 
@@ -14,6 +13,6 @@ export class HttpService {
     constructor(private http: HttpClient) { }
 
     public getAllMissions(): Observable<IMission[]> {
-        return this.http.get(this.baseURL).pipe(map(responseMapper));
+        return this.http.get(this.baseURL).pipe(map(responseMapper), catchError(() => of([])));
     }
 }

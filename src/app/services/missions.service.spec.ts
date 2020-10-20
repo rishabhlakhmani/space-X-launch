@@ -43,9 +43,11 @@ describe('MissionsService', () => {
         expect(service.setMissionsObs).toHaveBeenCalled();
     });
 
-    it('should set Filetrs', () => {
-        service.setFilters({ launch_success: 'true' });
-        expect(service.getFilters()).toEqual({ launch_success: 'true' });
+    it('should emit and subscribe Filetrs', () => {
+        service.setFiltersObs({ launch_success: 'true' });
+        service.getFiltersObs().subscribe((value) => {
+            expect(value).toEqual({ launch_success: 'true' });
+        });
     });
 
     it('#getAllMissions should fetch all missions from API',

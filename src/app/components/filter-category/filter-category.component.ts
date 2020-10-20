@@ -1,7 +1,5 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Component, Input, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
 import { filterTypes } from 'src/app/constants/filters.constant';
 import { IFilters } from 'src/app/models/filters.interface';
 import { MissionsService } from 'src/app/services/missions.service';
@@ -15,7 +13,7 @@ export class FilterCategoryComponent implements OnInit {
     @Input() filterType: string;
     public filterCategory: { label: string, values: string[] };
     public activeFilters: IFilters;
-    constructor(private missionService: MissionsService, private router: Router, private route: ActivatedRoute) { }
+    constructor(private missionService: MissionsService, private router: Router) { }
 
     ngOnInit(): void {
         this.filterCategory = filterTypes.get(this.filterType);

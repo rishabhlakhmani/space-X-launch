@@ -71,7 +71,7 @@ describe('MissionsComponent', () => {
     });
 
     it('should get missionList based on URL', () => {
-        component.missions.subscribe((list) => {
+        component.missions$.subscribe((list) => {
             expect(list.length).toBe(1);
         });
     });

@@ -26,7 +26,7 @@ describe('HttpService', () => {
     });
 
     it('should get Data from API', () => {
-        const baseURL = 'https://api.spacexdata.com/v3/launches?limit=100&launch_success=true';
+        const baseURL = 'https://api.spacexdata.com/v3/launches?limit=100';
         const missions = [
             {
                 mission_name: 'RatSat',
@@ -40,7 +40,8 @@ describe('HttpService', () => {
                 rocket: {
                     first_stage: {
                         cores: [{
-                            land_success: 'false'
+                            land_success: 'true',
+                            landing_intent: true,
                         }]
                     }
                 }
@@ -54,7 +55,7 @@ describe('HttpService', () => {
                 imgUrl: 'https://images2.imgbox.com/e9/c9/T8CfiSYb_o.png',
                 launch_year: '2008',
                 launch_success: 'true',
-                land_success: 'false'
+                land_success: 'true'
             }
         ];
         service.getAllMissions().subscribe(response => {
@@ -62,6 +63,17 @@ describe('HttpService', () => {
         });
         const req = httpMock.expectOne(baseURL);
         req.flush(missions);
+        httpMock.verify();
+    });
+
+
+    it('404 Not Found should return blank array', () => {
+        const baseURL = 'https://api.spacexdata.com/v3/launches?limit=100';
+        service.getAllMissions().subscribe(response => {
+            expect(response).toEqual([]);
+        });
+        const req = httpMock.expectOne(baseURL);
+        req.flush('404 error', { status: 404, statusText: 'Not Found' });
         httpMock.verify();
     });
 });

@@ -16,6 +16,7 @@ describe('MissionCardComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(MissionCardComponent);
         component = fixture.componentInstance;
+        component.isLoaded = true;
         component.mission = {
             mission_name: 'RatSat',
             flight_number: 4,
