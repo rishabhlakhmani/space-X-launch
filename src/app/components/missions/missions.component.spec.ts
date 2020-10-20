@@ -29,6 +29,7 @@ describe('MissionsComponent', () => {
 
         getMissionsObs = () => of(missions);
 
+        getMissionList = () => this.missionList;
         setMissionsList = (allMissions) => {
             this.missionList = allMissions;
         }
