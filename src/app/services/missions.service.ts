@@ -6,52 +6,50 @@ import { IMission } from '../models/mission.interface';
 import { HttpService } from './http.service';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class MissionsService {
+  constructor(private httpServie: HttpService) {}
 
-    constructor(private httpServie: HttpService) { }
+  private missionsObs$: BehaviorSubject<IMission[]> = new BehaviorSubject(null);
+  private filetrObs$: BehaviorSubject<IFilters> = new BehaviorSubject(null);
+  private missionList: IMission[];
+  private currentFilters: IFilters;
 
-    private missionsObs$: BehaviorSubject<IMission[]> = new BehaviorSubject(null);
-    private filetrObs$: BehaviorSubject<IFilters> = new BehaviorSubject(null);
-    private missionList: IMission[];
-    private currentFilters: IFilters;
+  public getMissionsObs(): Observable<IMission[]> {
+    return this.missionsObs$.asObservable();
+  }
 
-    public getMissionsObs(): Observable<IMission[]> {
-        return this.missionsObs$.asObservable();
-    }
+  public setMissionsObs(missions: IMission[]): void {
+    this.missionsObs$.next(missions);
+  }
 
-    public setMissionsObs(missions: IMission[]): void {
-        this.missionsObs$.next(missions);
-    }
+  public getAllMissions(): Observable<IMission[]> {
+    return this.httpServie.getAllMissions();
+  }
 
-    public getAllMissions(): Observable<IMission[]> {
-        return this.httpServie.getAllMissions();
-    }
+  public setMissionsList(allMissions: IMission[]): void {
+    this.missionList = allMissions;
+    this.setMissionsObs(this.missionList);
+  }
 
-    public setMissionsList(allMissions: IMission[]): void {
-        this.missionList = allMissions;
-        this.setMissionsObs(this.missionList);
-    }
+  public getFiltersObs(): Observable<IFilters> {
+    return this.filetrObs$.asObservable();
+  }
 
-    public getFiltersObs(): Observable<IFilters> {
-        return this.filetrObs$.asObservable();
-    }
+  public setFiltersObs(filters: IFilters): void {
+    this.filetrObs$.next(filters);
+  }
 
-    public setFiltersObs(filters: IFilters): void {
-        this.filetrObs$.next(filters);
-    }
+  public setFilters(newFilters: IFilters): void {
+    this.currentFilters = newFilters;
+    this.setFiltersObs(newFilters);
+  }
 
-    public setFilters(newFilters: IFilters): void {
-        this.currentFilters = newFilters;
-        this.setFiltersObs(newFilters);
-    }
-
-    public applyFilters(): void {
-        const filteredList = this.missionList.filter(mission => {
-            return _.isMatch(mission, this.currentFilters);
-        });
-        this.setMissionsObs(filteredList);
-    }
-
+  public applyFilters(): void {
+    const filteredList = this.missionList.filter((mission) => {
+      return _.isMatch(mission, this.currentFilters);
+    });
+    this.setMissionsObs(filteredList);
+  }
 }

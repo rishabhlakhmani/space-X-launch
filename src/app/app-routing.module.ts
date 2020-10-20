@@ -4,14 +4,20 @@ import { MissionsComponent } from './components/missions/missions.component';
 import { MissionsListResolver } from './resolver/mission-list.resolver';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'launches', pathMatch: 'full' },
-    { path: 'launches', component: MissionsComponent, resolve: { allMissions: MissionsListResolver } }
+  { path: '', redirectTo: 'launches', pathMatch: 'full' },
+  {
+    path: 'launches',
+    component: MissionsComponent,
+    resolve: { allMissions: MissionsListResolver },
+  },
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, {
-        initialNavigation: 'enabled'
-    })],
-    exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'enabled',
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
