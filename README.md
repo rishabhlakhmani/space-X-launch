@@ -23,6 +23,7 @@ https://img.shields.io/badge/%3C%2F%3E-TypeScript-blue
 - [Getting Started](#getting-started)
 - [Deployment](#deployment)
 - [Test Cases](#test-cases)
+- [Linting](#linting)
 - [Author](#author)
 
 ## Status
@@ -50,6 +51,7 @@ https://img.shields.io/badge/%3C%2F%3E-TypeScript-blue
 - [x] Filter
 - [x] Angular Resolver
 - [x] Observables
+- [x] Behaviour Subject
 - [x] Test cases with [Karma](https://karma-runner.github.io/latest/index.html) & [Jasmine](https://jasmine.github.io/)
 
 ## Quick start
@@ -108,7 +110,9 @@ Application is deployed on https://spacex-launch-with-angular.herokuapp.com/ wit
 - Covered All files with almost 100% coverage
 <img src="./src/assets/img/test_cases.JPG"/>
 
-##
+## Linting
+- 100% Linting Done with [ESLint](https://eslint.org/)
+
 
 ### Author
 * Updated : 18/10/2020

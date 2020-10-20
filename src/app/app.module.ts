@@ -11,22 +11,21 @@ import { MissionsComponent } from './components/missions/missions.component';
 import { FilterCategoryComponent } from './components/filter-category/filter-category.component';
 import { MissionsListResolver } from './resolver/mission-list.resolver';
 
-
 @NgModule({
-    declarations: [
-        AppComponent,
-        FiltersComponent,
-        MissionCardComponent,
-        MissionsComponent,
-        FilterCategoryComponent,
-    ],
-    imports: [
-        BrowserModule.withServerTransition({ appId: 'serverApp' }),
-        CommonModule,
-        HttpClientModule,
-        AppRoutingModule
-    ],
-    providers: [MissionsListResolver],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    FiltersComponent,
+    MissionCardComponent,
+    MissionsComponent,
+    FilterCategoryComponent,
+  ],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    CommonModule,
+    HttpClientModule,
+    AppRoutingModule,
+  ],
+  providers: [MissionsListResolver],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

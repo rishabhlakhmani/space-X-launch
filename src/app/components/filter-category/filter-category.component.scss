@@ -30,7 +30,7 @@
       outline-style: none;
 
       &:hover,
-      &:focus {
+      &:focus, &.active {
         background: #75a52e !important;
       }
     }
