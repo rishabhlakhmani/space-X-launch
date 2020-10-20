@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { IFilters } from 'src/app/models/filters.interface';
@@ -14,7 +14,7 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class MissionsComponent implements OnInit, OnDestroy {
 
-    public missions: Observable<IMission[]>;
+    public missions$: Observable<IMission[]>;
     constructor(private missionService: MissionsService, private route: ActivatedRoute,
                 private titleService: Title, private metaTagService: Meta) { }
 
@@ -36,7 +36,7 @@ export class MissionsComponent implements OnInit, OnDestroy {
                     this.missionService.applyFilters();
                 });
 
-        this.missions = this.missionService.getMissionsObs();
+        this.missions$ = this.missionService.getMissionsObs();
 
         this.titleService.setTitle('Spacex Mission List');
         this.metaTagService.updateTag(

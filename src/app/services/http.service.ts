@@ -10,7 +10,7 @@ import { IMission } from '../models/mission.interface';
     providedIn: 'root'
 })
 export class HttpService {
-    public baseURL = 'https://api.spacexdata.com/v3/launches?limit=100&launch_success=true';
+    public baseURL = 'https://api.spacexdata.com/v3/launches?limit=100';
     constructor(private http: HttpClient) { }
 
     public getAllMissions(): Observable<IMission[]> {

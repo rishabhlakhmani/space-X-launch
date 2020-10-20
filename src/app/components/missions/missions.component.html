@@ -1,8 +1,14 @@
 <div class="cards">
-  <div
-    class="mission-card"
-    *ngFor="let mission of missions | async; trackBy: trackByFn"
-  >
-    <app-mission-card [mission]="mission"></app-mission-card>
-  </div>
+  <ng-container *ngIf="missions$ | async as missions; else: loading">
+    <ng-container *ngIf="missions.length; else noMissions">
+      <div
+        class="mission-card"
+        *ngFor="let mission of missions; trackBy: trackByFn"
+      >
+        <app-mission-card [mission]="mission"></app-mission-card>
+      </div>
+    </ng-container>
+    <ng-template #noMissions><div class="no-missions"><h2>No Missions Found!</h2></div></ng-template>
+  </ng-container>
+  <ng-template #loading>loading animation...</ng-template>
 </div>

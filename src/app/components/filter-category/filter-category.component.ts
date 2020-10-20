@@ -1,6 +1,9 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { filterTypes } from 'src/app/constants/filters.constant';
+import { IFilters } from 'src/app/models/filters.interface';
 import { MissionsService } from 'src/app/services/missions.service';
 
 @Component({
@@ -11,15 +14,19 @@ import { MissionsService } from 'src/app/services/missions.service';
 export class FilterCategoryComponent implements OnInit {
     @Input() filterType: string;
     public filterCategory: { label: string, values: string[] };
-    constructor(private missionService: MissionsService, private router: Router) { }
+    public activeFilters: IFilters;
+    constructor(private missionService: MissionsService, private router: Router, private route: ActivatedRoute) { }
 
     ngOnInit(): void {
         this.filterCategory = filterTypes.get(this.filterType);
+        this.missionService.getFiltersObs().subscribe((filters: IFilters) => {
+            this.activeFilters = filters;
+        });
     }
 
     public onClick(filterValue: string): void {
         if (filterValue !== 'Clear') {
-            const newFilters = { ...this.missionService.getFilters(), [this.filterType]: filterValue };
+            const newFilters = { ...this.activeFilters, [this.filterType]: filterValue };
             this.router.navigate(['/launches'], { queryParams: newFilters });
         } else {
             this.router.navigate(['/launches']);

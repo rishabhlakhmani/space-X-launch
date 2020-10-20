@@ -13,6 +13,7 @@ export class MissionsService {
     constructor(private httpServie: HttpService) { }
 
     private missionsObs$: BehaviorSubject<IMission[]> = new BehaviorSubject(null);
+    private filetrObs$: BehaviorSubject<IFilters> = new BehaviorSubject(null);
     private missionList: IMission[];
     private currentFilters: IFilters;
 
@@ -33,12 +34,17 @@ export class MissionsService {
         this.setMissionsObs(this.missionList);
     }
 
-    public getFilters(): IFilters {
-        return this.currentFilters;
+    public getFiltersObs(): Observable<IFilters> {
+        return this.filetrObs$.asObservable();
+    }
+
+    public setFiltersObs(filters: IFilters): void {
+        this.filetrObs$.next(filters);
     }
 
     public setFilters(newFilters: IFilters): void {
         this.currentFilters = newFilters;
+        this.setFiltersObs(newFilters);
     }
 
     public applyFilters(): void {

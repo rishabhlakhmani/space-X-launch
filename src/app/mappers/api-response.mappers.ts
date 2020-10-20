@@ -9,7 +9,11 @@ export const responseMapper = (missions): IMission[] => {
             imgUrl: response.links.mission_patch_small,
             launch_year: response.launch_year,
             launch_success: response.launch_success?.toString() || 'false',
-            land_success: response.rocket.first_stage.cores[0].land_success?.toString() || 'false'
+            land_success: figureOutLandSuccess(response.rocket.first_stage.cores[0]).toString()
         };
     });
 };
+
+const figureOutLandSuccess = (core): boolean => {
+        return core.landing_intent ? (core.land_success ? true : false) : true;
+}
