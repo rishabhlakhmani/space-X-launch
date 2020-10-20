@@ -1,27 +1,115 @@
-# SpaceXLaunch
+<p align="center">
+  <h1 align="center">SpaceXLaunch with Angular Universal</h1>
+  <p align="center">
+    <img src="https://dummyimage.com/600x400/000/fff"/>
+  </p>
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
+[![Author](http://img.shields.io/badge/author-@rishabhlakhmani-green.svg)](https://www.linkedin.com/in/rishabh-lakhmani/)
+![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
+![Build](https://img.shields.io/badge/build-passing-brightgreen
+)
+![Code Style](
+https://img.shields.io/badge/code%20style-prettier-ff69b4
+)
+![Technology](
+https://img.shields.io/badge/%3C%2F%3E-TypeScript-blue
+)
 
-## Development server
+## Table of contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [Status](#status)
+- [Quick start](#quick-start)
+- [Getting Started](#getting-started)
+- [Deployment](#deployment)
+- [Test Cases](#test-cases)
+- [Author](#author)
 
-## Code scaffolding
+## Status
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### What's included
+> Front-end Dependencies
+- [x] Angular : 10.1.2
+- [x] Angular CLI : 10.1.7
+- [x] Angular Universal : 10.1.0
+- [x] Rxjs : 6.6.3
+- [x] lodash: 4.17.20
 
-## Build
+> SSR Dependencies
+- [x] Node.js : 12.11.1
+- [x] Express.js : 4.15.2
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+> Features
+- [x] Routing
+- [x] Server Side Rendering
+- [x] Responsive Layout
+- [x] Search Engine Optimization (SEO)
+- [x] SpaceX API integration with GET method
+- [x] Components
+- [x] Services
+- [x] Filter
+- [x] Angular Resolver
+- [x] Observables
+- [x] Test cases with [Karma](https://karma-runner.github.io/latest/index.html) & [Jasmine](https://jasmine.github.io/)
 
-## Running unit tests
+## Quick start
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+# clone the repo
+git clone https://github.com/rishabhlakhmani/space-X-launch.git
 
-## Running end-to-end tests
+# change directory
+cd space-X-launch
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+# install the repo with npm
+npm install
 
-## Further help
+# start the server on client
+ng serve
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# start the server for server side rendering in development mode
+npm run dev:ssr
+
+```
+in your browser go to [http://localhost:4200](http://localhost:4200)
+
+
+## Getting Started
+
+### Installation
+* `npm install` (installing dependencies)
+
+### Developement
+* `npm run start`
+* in your browser [http://localhost:4200](http://localhost:4200)
+
+### Tests
+* `npm run lint`
+* `npm run test`
+
+
+### Compilation
+* `npm run build`       ( without SSR)
+* `npm run build:ssr`   ( with SSR)
+
+### Production
+* `npm run serve:ssr`
+* in your browser [http://localhost:4100](http://localhost:4100)
+
+## Deployment
+
+Application is deployed on https://spacex-launch-with-angular.herokuapp.com/ with [Heroku](https://www.heroku.com/)
+ - develop branch is set to automatic deployment
+
+## Lighthouse Audit
+<img src="./src/assets/img/lighthouse_report.png"/>
+
+## Test Cases
+- Covered All files with almost 100% coverage
+<img src="https://api.ganatan.com/articles/img/search-engine-optimization-avec-angular-lighthouse-after.png"/>
+
+##
+
+### Author
+* Updated : 18/10/2020
+* Author  : Rishabh Lakhmani
