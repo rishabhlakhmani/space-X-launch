@@ -1,7 +1,7 @@
 <p align="center">
   <h1 align="center">SpaceXLaunch with Angular Universal</h1>
   <p align="center">
-    <img src="https://dummyimage.com/600x400/000/fff"/>
+    <img src="./src/assets/img/home.png"/>
   </p>
 </p>
 
@@ -106,7 +106,7 @@ Application is deployed on https://spacex-launch-with-angular.herokuapp.com/ wit
 
 ## Test Cases
 - Covered All files with almost 100% coverage
-<img src="https://api.ganatan.com/articles/img/search-engine-optimization-avec-angular-lighthouse-after.png"/>
+<img src="./src/assets/img/test_cases.JPG"/>
 
 ##
 
