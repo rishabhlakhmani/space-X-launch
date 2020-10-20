@@ -30,11 +30,15 @@ describe('FilterCategoryComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should navigate to filtered url', () => {
+    it('should navigate to filtered url and the clear', () => {
         component.onClick('true');
-        const path = routerSpy.navigate.calls.first().args[0];
+        let path = routerSpy.navigate.calls.first().args[0];
         const queryParams = routerSpy.navigate.calls.first().args[1]?.queryParams;
         expect(path).toEqual(['/launches']);
-        expect(queryParams).toEqual({launch_success: 'true'});
+        expect(queryParams).toEqual({ launch_success: 'true' });
+
+        component.onClick('Clear');
+        path = routerSpy.navigate.calls.first().args[0];
+        expect(path).toEqual(['/launches']);
     });
 });

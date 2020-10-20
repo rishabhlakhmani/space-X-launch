@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
         this.titleService.setTitle('SpaceX Launch with Angular');
         this.metaTagService.addTags([
             { name: 'keywords', content: 'Angular SEO Integration, SpaceX Launch, Spacex APIs, Angular Universal, Angular 10' },
-            { name: 'robots', content: 'index, follow' },
             { name: 'author', content: 'Rishabh Lakhmani' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
             { charset: 'UTF-8' }
