@@ -9,10 +9,14 @@ import { IMission } from 'src/app/models/mission.interface';
 export class MissionCardComponent implements OnInit {
 
     @Input() mission: IMission;
-
+    public isLoaded = false;
     constructor() { }
 
     ngOnInit(): void {
+    }
+
+    public removeLoader(): void {
+        this.isLoaded = true;
     }
 
 }

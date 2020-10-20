@@ -6,7 +6,7 @@
     <button
       *ngFor="let value of filterCategory.values"
       (click)="onClick(value)"
-      [ngClass]="{'active': activeFilters.hasOwnProperty(filterType) && activeFilters[filterType] === value}"
+      [ngClass]="{'active': activeFilters && activeFilters.hasOwnProperty(filterType) && activeFilters[filterType] === value}"
     >
       {{ value }}
     </button>
