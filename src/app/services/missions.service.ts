@@ -12,7 +12,7 @@ export class MissionsService {
 
     constructor(private httpServie: HttpService) { }
 
-    public missionList: IMission[];
+    private missionList: IMission[];
     private missionsObs$: BehaviorSubject<IMission[]> = new BehaviorSubject(null);
     private currentFilters: IFilters;
 
@@ -26,6 +26,10 @@ export class MissionsService {
 
     public getAllMissions(): Observable<IMission[]> {
         return this.httpServie.getAllMissions();
+    }
+
+    public getMissionList(): IMission[] {
+        return this.missionList;
     }
 
     public setMissionsList(allMissions: IMission[]): void {

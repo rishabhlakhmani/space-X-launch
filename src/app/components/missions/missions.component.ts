@@ -26,7 +26,7 @@ export class MissionsComponent implements OnInit, OnDestroy {
                 }
                 )).subscribe(params => {
                     this.missionService.setFilters(params as IFilters);
-                    if (this.missionService.missionList) {
+                    if (this.missionService.getMissionList()) {
                         this.missionService.applyFilters();
                     } else {
                         this.missionService.getAllMissions().subscribe(missions => {
