@@ -6,7 +6,7 @@
     "start": "npm run serve:ssr",
     "build": "npm run build:ssr",
     "test": "ng test --code-coverage",
-    "lint": "tsc --noEmit && eslint . --ext ts --quiet",
+    "lint": "tsc --noEmit && eslint . --ext ts --quiet --fix",
     "e2e": "ng e2e",
     "dev:ssr": "ng run space-x-launch:serve-ssr",
     "serve:ssr": "node dist/space-x-launch/server/main.js",
