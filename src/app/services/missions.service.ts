@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import * as _ from 'lodash';
 import { IFilters } from '../models/filters.interface';
 import { IMission } from '../models/mission.interface';
@@ -11,7 +11,7 @@ import { HttpService } from './http.service';
 export class MissionsService {
   constructor(private httpServie: HttpService) {}
 
-  private missionsObs$: BehaviorSubject<IMission[]> = new BehaviorSubject(null);
+  private missionsObs$: Subject<IMission[]> = new Subject();
   private filetrObs$: BehaviorSubject<IFilters> = new BehaviorSubject(null);
   private missionList: IMission[];
   private currentFilters: IFilters;
