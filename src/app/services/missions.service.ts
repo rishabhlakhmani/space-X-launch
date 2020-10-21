@@ -30,7 +30,6 @@ export class MissionsService {
 
   public setMissionsList(allMissions: IMission[]): void {
     this.missionList = allMissions;
-    this.setMissionsObs(this.missionList);
   }
 
   public getFiltersObs(): Observable<IFilters> {
