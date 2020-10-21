@@ -1,7 +1,6 @@
 <div class="card">
   <div [ngClass]="{'card-image': true, 'loading': !isLoaded}">
-    <img *ngIf="!isLoaded" src="../../../assets/img/loader.gif"/>
-    <img [hidden]="!isLoaded" (load)="removeLoader()" [src]="mission.imgUrl" alt="mission_img"/>
+    <img (load)="removeLoader()" [src]="mission.imgUrl" alt="mission_img" loading="lazy"/>
   </div>
   <div class="card-content">
     <div class="card-title card-text">
