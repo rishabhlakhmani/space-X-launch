@@ -101,7 +101,10 @@ in your browser go to [http://localhost:4200](http://localhost:4200)
 ## Deployment
 
 Application is deployed on https://spacex-launch-with-angular.herokuapp.com/ with [Heroku](https://www.heroku.com/)
- - develop branch is set to automatic deployment
+ - There are 2 branches:
+    - **develop**: (with angular resolver) - where component will wait for response to come from API and then only render the component.
+    - **develop-w/o-resolver**: dan't wait for response, start rendering based on route and if data is not available then only fetch it
+ - develop-w/o-resolver branch is set to automatic deployment
 
 ## Lighthouse Audit
 <img src="./src/assets/img/lighthouse_report.png"/>
